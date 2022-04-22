@@ -1,0 +1,52 @@
+﻿<!-- KEVIN SEGURA CALVO EXAMEN 2 UTC PROGRA 6 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>@ViewData["Title"] - WebApp</title>
+    @await Html.PartialAsync("_HeaderPartial")
+</head>
+<body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-success">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="/Assets/template/img/download.png" alt="" width="50" height="50">
+                </a>
+                <a class="navbar-brand" style="color:white" href="#">Examen2 Kevin Segura Calvo</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Cliente/Grid">Cliente</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Solicitud/Grid">Solicitud</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Servicio/Grid">Servicio (extra)</a>
+                        </li>
+                        
+                    </ul>
+
+
+                </div>
+            </div>
+        </nav>
+        <br />
+
+        @RenderBody()
+
+        @await Html.PartialAsync("_ScriptsPartial")
+        @await RenderSectionAsync("Scripts", required: false)
+    
+</body>
+</html>

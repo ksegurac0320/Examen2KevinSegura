@@ -1,0 +1,118 @@
+﻿@page
+@model WebApp.Pages.Cliente.EditModel
+@{ }
+<div id="AppEdit" class="container" data-entity="@JsonSerializer.Serialize(Model.Entity)" v-cloak>
+    <div class="card">
+        <div class="card-header">
+            @(Model.id.HasValue?"Actualizar":"Nuevo") <!-- validacion por si es agregar o Registro -->
+        </div>
+        <div class="card-body">
+            <form id="FormEdit" method="post">
+                <input type="hidden" asp-for="Entity.IdCliente" /> <!-- se usa hidden por si se hara un edit  -->
+                <!-- Campos de texto -->
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Identificacion" class="form-label">Identificación</label>
+                    <input type="text" class="form-control" asp-for="Entity.Identificacion" v-model="Entity.Identificacion" maxlength="250" required> <!-- maxlenght para obligar a un tamano -->
+                </div>
+
+                <!-- Tipo Cedula Select -->
+                <div>
+                    <label>Tipo de Cedula</label>
+                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" asp-for="Entity.IdTipoIdentificacion" v-model="Entity.IdTipoIdentificacion">
+                        <option value="1">Fisico</option>
+                        <option value="2">Juridica</option>
+                    </select>
+
+                </div>
+
+                <!-- 
+                    <div class="form-group mb-3">
+                    <label for="Entity.IdTipoIdentificacion" class="form-label">Tipo de Identificación (1-Fisico 2-Juridico)</label>
+                     <input type="text" class="form-control" asp-for="Entity.IdTipoIdentificacion" v-model="Entity.IdTipoIdentificacion" maxlength="250" required>
+                     </div>
+                 -->
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" asp-for="Entity.Nombre" v-model="Entity.Nombre" maxlength="250" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.PrimerApellido" class="form-label">Primer Apellido</label>
+                    <input type="text" class="form-control" asp-for="Entity.PrimerApellido" v-model="Entity.PrimerApellido" maxlength="250" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.SegundoApellido" class="form-label">Segundo Apellido</label>
+                    <input type="text" class="form-control" asp-for="Entity.SegundoApellido" v-model="Entity.SegundoApellido" maxlength="250" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.FechaNacimiento" class="form-label">Fecha Nacimiento</label>
+                    <input type="date" class="form-control" asp-for="Entity.FechaNacimiento" v-model="Entity.FechaNacimiento" maxlength="250" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Nacionalidad" class="form-label">Nacionalidad</label>
+                    <input type="text" class="form-control" asp-for="Entity.Nacionalidad" v-model="Entity.Nacionalidad" maxlength="250" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.FechaDefuncion" class="form-label">Fecha Defunción</label>
+                    <input type="date" class="form-control" asp-for="Entity.FechaDefuncion" v-model="Entity.FechaDefuncion" maxlength="250" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Genero" class="form-label">Género</label>
+                    <input type="text" class="form-control" asp-for="Entity.Genero" v-model="Entity.Genero" maxlength="250" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.NombreApellidosPadre" class="form-label">Nombre del Padre</label>
+                    <input type="text" class="form-control" asp-for="Entity.NombreApellidosPadre" v-model="Entity.NombreApellidosPadre" maxlength="250" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.NombreApellidosMadre" class="form-label">Nombre de la Madre</label>
+                    <input type="text" class="form-control" asp-for="Entity.NombreApellidosMadre" v-model="Entity.NombreApellidosMadre" maxlength="250" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Pasaporte" class="form-label">Pasaporte</label>
+                    <input type="text" class="form-control" asp-for="Entity.Pasaporte" v-model="Entity.Pasaporte" maxlength="250" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.CuentaIBAN" class="form-label"># Cuenta IBAN</label>
+                    <input type="text" class="form-control" asp-for="Entity.CuentaIBAN" v-model="Entity.CuentaIBAN" maxlength="250" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.CorreoNotifica" class="form-label">Correo</label>
+                    <input type="text" class="form-control" asp-for="Entity.CorreoNotifica" v-model="Entity.CorreoNotifica" maxlength="250" required>
+                </div>
+
+                <!-- boton -->
+                <div class="row">
+                    <div class="col-4">
+                        <button type="button" @@click="Save" class="btn btn-primary">
+                            @(Model.id.HasValue?"Actualizar":"Agregar")  <!-- validacion por si es agregar o actualizar -->
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    .
+</div>
+
+<!-- se trae el ts para que se utilice -->
+@section Scripts{
+
+
+    <script src="~/App/Cliente/Edit.js"></script>
+
+}
+<!-- KEVIN SEGURA CALVO EXAMEN 2 UTC PROGRA 6 -->
